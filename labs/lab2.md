@@ -148,18 +148,22 @@ First, open 'terminal' on your mac. We are going to use the terminal to generate
 
 
  <details><summary>For Mac and Linux</summary> 
-Run the following shell command, replacing the path to your private key if necessary:  
+Run the following shell command, replacing the path to your private key if necessary: 
+<br> 
 ```
 cd ~/.ssh
 ssh-keygen -t ed25519 -b 4096
 chmod 400 ~/.ssh/id_ed25519
 ```
-
+<br>
 - Next, share the public key with the Ron server
+<br>
 ```
 ssh-copy-id USERNAME@ron.sr.unh.edu
 ```
+<br>
 If that doesn't work, we can try:
+<br>
 ```
 cat ~/.ssh/id_rsa.pub | ssh user@12.34.56.78 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys
 ```
