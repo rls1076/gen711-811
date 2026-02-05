@@ -15,7 +15,7 @@
 ### Your Notes Here: 
 Seperate notes by an empty line, or they'll get pasted together
 
-- Using a dash is helpfuk
+- Using a dash is helpful for lists
 1. And numbers for lists
 
 The pound sign is used for 'sections'. A singel pound (or hashtag) in front of a word makes it appear bigger/bold to show a new section. See below
