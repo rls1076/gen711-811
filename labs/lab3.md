@@ -78,8 +78,7 @@ To change directories, use 'cd' and then hit tab two times to see directories in
 2. Do each of the following tasks from your current directory using a single ls command for each:
     - List all of the files in /bin that start with the letter ‘c’.
      
-     ls /bin/c*
-     ls /bin/ | grep '^c'
+
     - List all of the files in /bin that contain the letter ‘a’.
    
     ls /bin/a*
@@ -89,6 +88,9 @@ To change directories, use 'cd' and then hit tab two times to see directories in
 
 #### Answers here
 Start with the letter c ____
+
+ls /bin/c*
+ls /bin/ | grep '^c'
 Start with the letter a ____
 Start with the letter o ____
 Contain the letter ‘a’ or the letter ‘c’ ____
