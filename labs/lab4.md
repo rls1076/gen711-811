@@ -28,11 +28,18 @@ Navigate to your untrimmed_fastq directory in one command
 ### EXERCISE 2: WILDCARDS
 What would the output look like if the wildcard could *not* be matched? Compare the outputs
 
+ls: cannot access '*fq': No such file or directory 
+
 ### EXERCISE 3: NAVIGATING PRACTICE
 Navigate to your home directory. From there, list the contents of the untrimmed_fastq directory.
 
+ls -F gen711-811/shell_data/untrimmed_fastq/
+
 
 :::::::::::::::::::::::::::::::::::::::  challenge
+
+Option 4. original, pnas_final, pnas_sub
+The command will move back a directory to 'users', then down a directory to 'backup' and display the files within this directory, as listed.
 
 ## Relative path resolution
 
@@ -67,17 +74,41 @@ Hint: hidden files and folders in Unix start with ., for example .my_hidden_dire
 
 What is the hidden file name in the hidden directory?
 
+Using the commands 
+ls --all .hidden/
+ls -a
+ls -la
+ls -laF (long format, includes security settings for files)
+ls .*
+The name of the hidden file is youfoundit.txt
+
 ### EXERCISE 5: HISTORY
 Find the line number in your history for the command that listed all the .sh files in /usr/bin. Rerun that command.
 
+ls /usr/bin/*.sh
+!151
+
+ls /usr/bin/c* | wc -l
+!152
+
 ### EXERCISE 6: FILE CONTENTS
 Print out the contents of the ~/shell_data/untrimmed_fastq/SRR097977.fastq file. What is the last line of the file?
+
+cat SRR097977.fastq
+tail -n1 SRR097977.fastq
+THe last line of the file is GGGTAGGTATTACTCAGGACGAGGCGGTCGTGCCAC.
 
 ### EXERCISE 7: PATHS
 From your home directory, and without changing directories, use one short command to print the contents of all of the files in the ~/shell_data/untrimmed_fastq directory.
 
 ### EXERCISE 8: LESS
 What are the next three nucleotides (characters) after the first instance of the sequence quoted above?
+
+less SRR097977.fastq or less -S SRR097977.fastq
+/TTTTT
+
+grep 'TTTTT' *fastq
+The first three nucletodies after the first instance are CAC. After the second instance the first nucleotide is A.
 
 ### File Permissions Help
 The first part of the output for the `-l` flag gives you information about the file's current permissions. There are ten slots in the
@@ -101,6 +132,9 @@ Create a backup of each of your FASTQ files using cp. (Note: You’ll need to do
 Use a wildcard to move all of your backup files to a new backup directory.
 Change the permissions on all of your backup files to be write-protected.
 
+mkdir backup
+cp NAMEOFFILE NEWNAMEOFCOPY
+mv *backup.fastq backup/
 
 ### EXERCISE 10: PROGRAMS
 After loading a conda environment, where is the program 'fastqc' stored?
