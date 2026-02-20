@@ -35,14 +35,16 @@ Quality score:    01........11........21........31........41
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 *Warm ups: What is the last read in the SRR2584863_1.fastq file? How confident are you in this read?
-A: 
+A: The last line of the SRR097977.fastq file is GGGTAGGTATTACTCAGGACGAGGCGGTCGTGCCAC. The quality score is mostly special characters, so the confidence in the read is lower. 
+
+Using the code tail -n4 SRR097977.fastq
 
 How big are your fastqs? (Hint: Look at the options for the ls command to see how to show file sizes.)
 - hint, it involves 'ls'. See if you can do it using a relative and absolute path
 - another hint: There is an option to make it easy to read the file size. Use one of the two methods to find it
-A:
+A: The SRR097977.fastq file is 47K large and the SRR098026.fastq file is 43K large.
 
-
+Using the code ls -l -h
 
 ### EXERCISE 5.1
 Starting in the shell_data/untrimmed_fastq directory, do the following:
@@ -54,7 +56,11 @@ Paste the code you used to do each step between the \'\'\' below:
 
 
 ```
-Replace this with code used
+rm -Rf backup/
+
+mkdir backup
+
+cp SRR097977.fastq backup/SRR097977_backup.fastq
 
 ```
 
@@ -76,24 +82,31 @@ talk more about this later).
 Change the permissions on all of your backup files to be write-protected.
 
 ```
-Replace this with code
+chmod -w SRR097977.fastq
+
+chmod ug+rwx SRR097977.fastq
 
 ```
+The first command removes write privileges, the second command specifies user and group and gives privileges. 
 
 How do you know they are write protected?
-A:
+A: If you check the file's permissions with ls -l, there would not be a "w" within the "group" or "other" permission classes. 
 
 
 ### EXERCISE 5.3: CONDA ENVIRONMENTS AND PROGRAMS
 After loading a conda environment, where is the program 'fastqc' stored?
 
-```
-Replace this with code
+Load a conda environmetn with the command conda activate genomics. It should have (genomics) at the beginning, specifying the environment. 
 
 ```
+fastqc *.fastq*
+
+```
+The fastqc program is in the shared directory.
 
 ### Explore the fastqc output. Which samples failed at least one of FastQC’s quality tests? What test(s) did those samples fail?
 
+Command to unzip is unzip *zip
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 - Use `which` for commands/programs to see where they are installed
