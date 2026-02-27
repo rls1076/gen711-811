@@ -87,10 +87,13 @@ To change directories, use 'cd' and then hit tab two times to see directories in
 Start with the letter c ____
 ls /bin/c*
 ls /bin/ | grep '^c'
+
 Start with the letter a ____
 ls /bin/a*
+
 Start with the letter o ____
 ls /bin/o*
+
 Contain the letter ‘a’ or the letter ‘c’ ____
 
 #### What command/commands would you use to find the line number in your history for the command that listed all the '.fastq' files using the absolute path. Paste your answer below.
