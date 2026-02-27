@@ -56,11 +56,8 @@ Paste the code you used to do each step between the \'\'\' below:
 
 
 ```
-rm -Rf backup/
 
-mkdir backup
-
-cp SRR097977.fastq backup/SRR097977_backup.fastq
+rm -Rf backup/  or mkdir backup  or cp SRR097977.fastq backup/SRR097977_backup.fastq
 
 ```
 
@@ -82,9 +79,8 @@ talk more about this later).
 Change the permissions on all of your backup files to be write-protected.
 
 ```
-chmod -w SRR097977.fastq
 
-chmod ug+rwx SRR097977.fastq
+chmod -w SRR097977.fastq or chmod ug+rwx SRR097977.fastq
 
 ```
 The first command removes write privileges, the second command specifies user and group and gives privileges. 
@@ -99,10 +95,12 @@ After loading a conda environment, where is the program 'fastqc' stored?
 Load a conda environmetn with the command conda activate genomics. It should have (genomics) at the beginning, specifying the environment. 
 
 ```
+
 fastqc *.fastq*
+The fastqc program is in the shared directory.
+
 
 ```
-The fastqc program is in the shared directory.
 
 ### Explore the fastqc output. Which samples failed at least one of FastQC’s quality tests? What test(s) did those samples fail?
 
