@@ -60,6 +60,7 @@ grep -B1 -A2 'NNNNNNNNNN' SRR098026.fastq > bad-reads.fastq
 How many sequences are there in `SRR098026.fastq`? Remember that every sequence is formed by four lines.
 
 wc -l SRR098026.fastq
+
 Divide the count by 4, so 996/4 = 249
 
 ## Exercise 3
@@ -67,6 +68,7 @@ Divide the count by 4, so 996/4 = 249
 How many sequences in `SRR098026.fastq` contain at least 3 consecutive Ns? 249 sequences
 
 grep NNN SRR098026.fastq | wc -l
+
 249 sequences
 
 ## Exercise 4
@@ -80,9 +82,13 @@ Print the file prefix of all of the `.txt` files in our current directory.
 After renaming the fastqs as demonstrated, remove `_2026` from all of the `.txt` files.
 
 for filename in *.fasta
+
 do
+
 echo -e name=$(basename ${filename} .fastq)
+
 echo -e mv ${filename} ${name}_2026.txt
+
 done
 
 ## Exercise 6
@@ -93,22 +99,33 @@ We want the script to tell us when it's done.
 2. Run the updated script.
 
 for name in *.fastq 
+
 do 
+
 echo ${name} 
+
 done
 
 (above is the same as saying
+
 echo SRR097977.fastq
+
 echo SRR098026.fastq)
 
 for fq in *.fastq
+
 do 
+
 wc -l ${fq}
+
 done
 
 for filename in *.fastq
+
 do
+
 head -n 2 ${filename}
+
 done
 
 
