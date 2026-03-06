@@ -27,7 +27,7 @@ wget ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteri
 or
 
 ```bash
-$ cd
+
 $ curl -O ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteria.txt
 ```
 
@@ -70,6 +70,8 @@ We are going to use a long-term sequencing dataset from a population of *Escheri
 
 - To see a timeline of the experiment to date, check out this [figure](https://en.wikipedia.org/wiki/E._coli_long-term_evolution_experiment#/media/File:LTEE_Timeline_as_of_May_28,_2016.png), and this paper [Blount et al. 2008: Historical contingency and the evolution of a key innovation in an experimental population of *Escherichia coli*](https://www.pnas.org/content/105/23/7899).
 
+Avoid using special characters with metadata so that data can be used effectively. 
+
 ### View the metadata
 
 We will be working with three sample events from the **Ara-3** strain of this experiment, one from 5,000 generations, one from 15,000 generations, and one from 50,000 generations. The population changed substantially during the course of the experiment, and we will be exploring how (the evolution of a **Cit+** mutant and **hypermutability**) with our variant calling workflow. The metadata file associated with this lesson can be [downloaded directly here](files/Ecoli_metadata_composite.csv) or [viewed in Github](https://github.com/datacarpentry/wrangling-genomics/blob/main/episodes/files/Ecoli_metadata_composite.csv). If you would like to know details of how the file was created, you can look at [some notes and sources here](https://github.com/datacarpentry/wrangling-genomics/blob/main/episodes/files/Ecoli_metadata_composite_README.md).
@@ -98,11 +100,22 @@ This metadata describes information on the *Ara-3* clones and the columns repres
 Based on the metadata, can you answer the following questions?
 
 1. How many different generations exist in the data?
+
+cut -f2 -d',' Ecoli_metadata_composite.csv | sort | uniq | grep -v 'gen' | wc -l
+
 2. How many rows and how many columns are in this data?
+
+head -n1 Ecoli_metadata_composite.csv | tr ',' '\n' | wc -l
+
 3. How many citrate+ mutants have been recorded in **Ara-3**?
+
+cut -f12 -d',' Ecoli_metadata_composite.csv | sort | uniq -c
+
 4. How many hypermutable mutants have been recorded in **Ara-3**?
 
+grep 'plus' Ecoli_metadata_composite.csv | wc -l
 
+cut -f6 -d',' Ecoli_metadata_composite.csv | sort | uniq -c
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
